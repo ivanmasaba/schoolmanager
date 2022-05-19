@@ -1,0 +1,62 @@
+@charset "utf-8";
+/* CSS Document home page*/
+
+.activities{
+	float: right;
+	width: 200px;
+	margin: 10px 0px;
+	padding:0px;
+}
+.activities ul{
+	display: block;
+	margin: 3px;
+	font-size: 12px;
+	text-align:center;
+	padding: 2px 0px 0px 20px;	
+}
+.activities ul a{
+	display: block;
+	margin: 4px;
+	color: #2D3384;
+	font: normal 12px 'Arial';
+	text-align: left;
+}
+.activities ul a:hover{
+	text-decoration: underline;
+}
+.contents h2{
+	font: bold 11px 'Arial';
+	padding: 3px;
+	margin: 0px;
+	color: #333333;
+}
+.noticeBoard{
+	background: #213c7f url(images/top_bg.gif) repeat-y; 
+	padding:4px 30px; 
+	margin: 5px 0px; 
+	color:#FFFFFF;
+	font: bold 11px 'Arial';
+}
+.boardA{
+	float: right;
+	width: 285px;
+	margin: 0px;
+	padding:5px;
+}
+.boardB{
+	width: 285px;
+	margin: 0px;
+	padding:5px;
+}
+.contents h3{
+	background:none;
+	font: bold 12px 'Arial';
+	color: #2D3A7B;
+	padding: 3px;
+}
+.contents h5{
+	font: bold 12px 'Arial';
+	color: #2D3A7B;
+	padding: 3px 20px;
+	border:none;
+}

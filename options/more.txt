@@ -1,0 +1,3 @@
+# option to add new student and new staff by admin. [done]
+
+# Let admin give permission to student to change details. [done]

@@ -1,0 +1,30 @@
+@charset "utf-8";
+/* STYLES FOR REGISTRATION PAGE ALONE */
+
+.reg_form{
+	border: solid 1px #999999;
+	background:  #ffffff;
+	padding: 5px 1px; 
+	border: 1px solid #BABED1; 
+	margin: 0px; 
+}
+hr{
+	width: 99%;
+	color: #3A6CBE;
+	border: none;
+	height: 1px;
+	margin-bottom: 0px;
+}
+
+legend{
+	color: #000;
+	margin: 10px;
+}
+
+h5:hover{
+	background-color: #E7E7F8;
+}
+h5{
+	cursor: pointer;
+	background: url(images/ClickDownNormal.gif) right no-repeat;
+}

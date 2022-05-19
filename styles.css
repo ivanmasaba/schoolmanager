@@ -1,0 +1,188 @@
+@charset "utf-8";
+/* CSS Document for common components*/
+
+body{
+	margin: 0px;
+	padding: 10px 0px 30px 0px;
+	font: normal 11px 'Arial';
+	color: #214a94;
+	text-align: center;
+	background: #4597ec url(images/site2.gif) repeat-x;
+}
+.top{
+	display: block;
+	padding: 0px;
+	margin: 5px;
+	height: 50px;
+}
+.bar{
+	background: #053a83 url(images/bar.jpg) top no-repeat;
+	height: 42px;
+	width: 800px;
+	margin: 0px auto;
+	padding: 25px 10px 5px 10px;
+	color: #FFFFFF;
+	text-align: left;
+}
+.bar a{
+	color: #B8BEE7;
+	padding: 1px;
+}
+.bar a:hover{
+	text-decoration: underline;
+}
+.content{
+	margin: 1px auto;
+	padding: 10px 5px;
+	font: normal 12px "Arial";
+	color: #2E3649;
+	text-align: left;
+	border: solid 1px #dfeaf6;
+	background: #FFFFFF url(images/side_bg.gif) repeat-y;
+	width: 808px;
+}
+.contents{
+	margin: 0px 0px 0px 190px;
+	display: block;
+}
+.sidebar{
+	width: 175px;
+	float: left;
+	padding: 40px 2px 2px 2px;
+	margin: 5px 0px;
+}
+.btm{
+	width: 800px;
+	height: 50px;
+	padding: 5px 10px;
+	margin: 0px auto;
+	text-align: right;
+	color: #4671D5;
+	background: #053a83 url(images/btm.jpg) bottom no-repeat;
+}
+.btm a{
+	float: left;
+	color: #88ACD5;
+	padding: 0px 3px;
+	border-right: solid 1px #6586BC;
+}
+.btm a:hover{ text-decoration: underline; }
+.head{
+	margin: 0px;
+	padding: 0px;
+	border-bottom: solid 1px #053a83;
+}
+
+a{
+	text-decoration: none;
+}
+ul{
+	display: none;
+	margin: 3px 3px 3px 45px;
+	color: #666666;
+	font: bold 11px "Arial";
+}
+.sidebar li a{
+	color: #666666;
+	display: block;
+	border: solid 1px #fdfdfd;
+}
+.sidebar li a:hover {
+	background-color: #EEFAFD;
+	border: solid 1px #C1E7F4;
+	color: #666666;
+}
+.sidebar a{
+	color: #000000;
+}
+.sidebar a:hover{
+	color: #0000CC;
+}
+
+/* List of fonts */
+h1{
+	font: bold 22px "Arial";
+	margin: 0px 80px;
+}
+h2{
+	font: italic 14px "Arial";
+	margin: 0px 80px;
+	color: #52a8bf;
+}
+h3{
+	padding: 6px 6px 10px 40px;
+	font: normal 12px "Arial";
+	color: #000000;
+	margin: 5px 0px;
+	background: url(images/add_reviewer.gif) no-repeat top left;
+	border-bottom: solid 1px #CCCCCC;
+}
+h4{
+	font: normal 12px "Arial";
+	color: #009900;
+	margin: 0px 20px;
+}
+h5{
+	padding: 10px;
+	font: bold 12px "Arial";
+	color: #1f3477;
+	margin: 0px;
+	border-bottom: solid 1px #306396; 
+	padding-bottom: 2px;
+	margin-bottom: 10px; 
+}
+.warn, h6{
+	font: normal 12px "Arial";
+	color: #C72921;
+	border: solid 1px #E20A0A;
+	border-left: solid 20px #E20A0A;
+	background: #FFECE6;
+	padding: 5px 30px;
+}
+.info{
+	font: normal 12px "Arial";
+	color: #2F4971;
+	border: solid 1px #2564AF;
+	border-left: solid 30px #2564AF;
+	background: #CADFF0;
+	padding: 5px 30px;
+	line-height: 1.5;
+}
+
+img{
+	border: none;
+}
+
+
+
+#edit_box{
+	 background: none; 
+	 border: solid 1px #9CB5CF;
+}
+#small_form{
+	font-size: 11px; 
+	font-weight: bold; 
+	border: dotted 1px #999999; 
+	margin: 5px 0px;
+	padding: 4px;
+	text-align: center;
+}
+.search_box{
+	background-image:url(images/searchbox_bg.gif); 
+	padding:10px;
+	display: block;
+	height:80px; 
+	color: #1f3477; 
+	margin:5px auto; 
+	text-align:center; 
+	border:solid 1px #99b4d1;
+}
+#search_name{
+	background:#f1f4f9 url(images/search_bg.gif) right no-repeat; 
+	border: solid 1px #999999; 
+	margin: 2px; 
+	padding:3px; 
+	font: italic 12px 'Arial'; 
+	width:340px;
+	color: #999999;
+}

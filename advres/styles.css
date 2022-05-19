@@ -1,0 +1,57 @@
+@charset "utf-8";
+
+/* STYLES FOR RESULTS PAGE ALONE */
+.tabs {
+	 background-color: #284D91;
+	 color: #ffffff;
+	 padding: 3px 5px 0px 5px;
+	 margin: 2px 0px;
+	 border: none;
+	 font: bold 11px 'Arial';
+	 cursor: pointer;
+}
+.tabs:hover {
+	background-color: #4378C9;
+}
+.tabs_active {
+	background-color: #f9f9fb;
+	color: #333333;
+	border: solid 1px #999999;
+	border-bottom: none;
+	padding: 5px 5px 1px 5px;
+	cursor: default;
+}
+.tab_body{
+	padding: 10px 8px; 
+	border: solid 1px #999999; 
+	background-color: #f9f9fb;
+	text-align: center;
+}
+#Create_report input{
+	padding: 0px 2px; 
+	font: normal 11px 'Arial';
+}
+textarea{
+	width: 95%;
+	padding: 0px 5px;
+	overflow: hidden;
+	border: solid 1px #CCCCCC;
+	font: normal 12px 'Arial';
+}
+select{
+	font: normal 12px 'Arial';
+	background-color:#fafafa;
+}
+.menuBar{
+	background: #213c7f url(images/top_bg.gif) repeat-y; 
+	padding:5px 30px; 
+	margin: 5px 0px; 
+	color:#FFFFFF;
+	font: bold 11px 'Arial';
+}
+ul{
+	display: block;
+	margin: 2px;
+	color: #333333;
+	font: bold 11px "Arial";
+}

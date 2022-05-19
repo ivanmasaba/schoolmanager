@@ -1,0 +1,97 @@
+@charset "utf-8";
+/* STYLES FOR REGISTRATION PAGE ALONE */
+
+.reg_form{
+	border: solid 1px #999999;
+	background:  #ffffff;
+	padding: 5px 1px; 
+	border: 1px solid #BABED1; 
+	margin: 0px; 
+}
+hr{
+	float: right;
+	width: 50%;
+}
+
+
+
+
+
+.contents #todayDate{
+	width: 80px;
+	height: 100px;
+	background: url(images/calendar_single_orange.png) no-repeat;
+	text-align: center;
+	padding: 20px 10px 5px 10px;
+	margin: 10px;
+}
+.contents #todayDate h1 {
+	font: normal 36px "Arial";
+	margin: 2px;
+	color: #333333;
+}
+.contents #today td {
+	font: normal 10px "Arial";
+	text-align: center;
+	border-left: solid 1px #eeeeee;
+	border-right: solid 1px #eeeeee;
+	color: #330033;
+}
+.contents #today a {
+	color: #330033;
+	text-decoration: none;
+}
+.contents #today a:hover {
+	color: #35A310;
+	text-decoration: none;
+}
+.contents #sun a {
+	color: #FF0000;
+}
+.contents #editWeek td {
+	border: solid 1px #CCCCCC;
+	border-left: none;
+	text-align: right;
+	font: bold 11px "Arial";
+	color: #666666;
+	padding: 3px 5px;
+}
+.submit {
+	 border: solid 1px #ffffff;
+	 color: #284D91;
+	 padding: 1px 6px;
+	 margin: 5px;
+	 font: bold 11px 'Arial';
+} 
+.submit:hover {
+	border-color: #4378C9;
+	cursor: hand;
+}
+.tabs {
+	 background-color: #284D91;
+	 color: #ffffff;
+	 padding: 3px 5px 0px 5px;
+	 margin: 2px 0px;
+	 border: none;
+	 font: bold 11px 'Arial';	
+}
+.tabs:hover {
+	background-color: #4378C9;
+}
+.tabs_active {
+	background-color: #f9f9fb;
+	color: #333333;
+	border: solid 1px #999999;
+	border-bottom: none;
+	padding: 5px 5px 1px 5px;
+}
+.tabNotseen { display: none; }
+fieldset{
+	border: solid 1px #666666;
+	padding: 5px 10px;
+	color: #5076DC;
+}
+legend{
+	color: #000;
+	margin: 10px;
+}
