@@ -125,7 +125,7 @@
           </tr>
           <tr>
             <td><label >Password:</label><br>
-            <input name="password" value="4321" type="password" size="30" maxlength="20" /></td>
+            <input name="password" value="43211" type="password" size="30" maxlength="20" /></td>
           </tr>
           <tr>
             <td width="115" rowspan="2" style=" font-weight: normal;">&nbsp;</td>
