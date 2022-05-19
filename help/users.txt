@@ -1,0 +1,7 @@
+student account:
+username: mark
+password: 1000
+
+staff account:
+username: andy
+password: 4321
