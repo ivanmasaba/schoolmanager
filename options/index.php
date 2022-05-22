@@ -3,7 +3,20 @@
 	if( $_SESSION['authenticated'] != 'yes' )
 	{header("location: ../login.php");}
 	require_once($_SERVER['DOCUMENT_ROOT'].'/schoolmanager/connection/connection.php');
-	$access_level = $_SESSION['access_level']; 
+	
+	$access_level = $_SESSION['access_level'];
+
+	if( $access_level == 'teacher' ){
+        $cid = $_SESSION['class'];
+    $sid = $_SESSION['subject'];
+    $c = $cxn->query("SELECT class_name FROM class WHERE id='$cid'");
+    $cl = mysqli_fetch_assoc($c);
+    $class = $cl['class_name'];
+     
+    $s = $cxn->query("SELECT subj_name FROM subjects WHERE id='$sid'");
+	$sub = mysqli_fetch_assoc($s);
+    $subject = $sub['subj_name'];
+    }
 	$show_this = ""; //This variable will be used to determine which form to show
 	//Code to change or upload person's picture
 	
@@ -211,12 +224,14 @@
 </div>
   <div class="content">
      <div class="sidebar">
-        <h4>Select an activity</h4>
-        <h3 style="background-image: url(../images/frontpage1.png);" ><a href='../index.php'>Home</a></h3>
-        <h3><a href="../adminr">Add Results</a></h3>
-		<h3><a href="../adminreg/">Account info</a></h3>
+	 <h4>Select an activity</h4>
+        <h3 style="background-image: url(../images/frontpage1.png);" ><a href='../'>Home</a></h3>
+        <?php     if( $access_level == 'teacher' ){ ?>
+        <h3><a href="../adminr/">Add Results</a></h3>
         <h3 style="background-image: url(images/email_initiator.gif);" ><a href='../advres/'>View results</a></h3>
-        <h3 style="background-image: url(../images/icon-30-cpanel.png);" ><a href="#">Change your settings</a></h3>
+        <?php } ?>
+     <h3><a href="../adminreg/">Account info</a></h3>
+        <h3 style="background-image: url(../images/icon-30-cpanel.png);" ><a href="../options/">Change your settings</a></h3>
      </div>
      <div class="contents">
        <div id="today" style=" text-align: right; ">
@@ -344,7 +359,7 @@
 <div class='btm'>
     <a href='../index.php'>Home </a>
     <a href='../registration/'> Registration </a>
-    <a href='../results/'> View results </a>
+    <a href='../advres/'> View results </a>
     <a href="../options"> Change your settings</a>
     <br/>&copy; All rights reserved. <br/> An Ivan Masaba Production 2022
 </div>

@@ -5,14 +5,13 @@
 	require_once($_SERVER['DOCUMENT_ROOT'].'/schoolmanager/connection/connection.php');
 	require_once($_SERVER['DOCUMENT_ROOT'].'/schoolmanager/common/sidebar.php');
 	$current_user = $_SESSION['current_uname'];
-  $reg_num = $_SESSION['index_number'];
 
 
 	$access_level = $_SESSION['access_level'];
-
+  $cid = $_SESSION['class'];
+  $sid = $_SESSION['subject'];
 	if( $access_level == 'teacher' ){
-        $cid = $_SESSION['class'];
-    $sid = $_SESSION['subject'];
+       
     $c = $cxn->query("SELECT class_name FROM class WHERE id='$cid'");
     $cl = mysqli_fetch_assoc($c);
     $class = $cl['class_name'];
@@ -21,6 +20,49 @@
 	$sub = mysqli_fetch_assoc($s);
     $subject = $sub['subj_name'];
     }
+
+  $reg_num = $_SESSION['index_number'];
+
+     $new_form_msg = "";
+
+     
+     $reg = $_GET['uname'];
+
+     $c = $cxn->query("SELECT reg_num, fname, sname FROM registration WHERE fname='$reg'");
+     $cl = mysqli_fetch_assoc($c);
+     $r = $cl['reg_num'];
+     $f = $cl['fname'];
+     $s = $cl['sname'];
+
+    if(isset($_POST['edit']))
+	{
+        
+        $test = $_POST['test_score'];
+		$exam = $_POST['exam_score'];
+		$total = $_POST['total_score'];
+
+        $sql = "UPDATE marks SET test_score='$test', exam_score='$exam', total_score='$total' 
+        WHERE reg_num='$r' AND subj_id=$sid ";
+
+              $cxn->query($sql);
+              if( $cxn->affected_rows )
+              {
+                $new_form_msg = "<div class='info' >";
+                  $new_form_msg .= "Marks updates successfully";
+              }
+              else{
+                $new_form_msg = "<div class='warn' >";
+                $new_form_msg .= $reg . ' ' .$sid . " Marks update failed. ".$cxn->error;
+            }
+
+        $new_form_msg .= "</div>";
+        
+        header("location: ../adminr/"); 
+        exit;
+        
+
+    }
+
 	
 ?>
 
@@ -29,6 +71,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Results</title>
+<script type="text/javascript" src="calc.js"></script>
 <script type="text/javascript" src="../common/javascript.js"></script>
 <script type="text/javascript" src="results.js"></script>
 <script src="SpryAssets/SpryMenuBar.js" type="text/javascript"></script>
@@ -72,25 +115,30 @@ echo "<h3 style=\"background-image: url(../images/icon-30-cpanel.png);\" ><a hre
     
     <div id="Create_report" class="tab_body">
     <div style="background-color: #FFFFFF; padding: 10px 3px; border: 1px solid #DEE8EF;">
-    <h4> <?php echo 'MARKS FOR ALL STUDENTS';?></h4>
-      <form action="" method="post" name="create report">
-        <table width="550" height="200px" border="0" cellspacing="1" cellpadding="2">
+    <div id="showClassResults">
+    <h4> <?php echo 'MARKS FOR '. $f . " " . $s ;?></h4>
+     
+      <?php echo $new_form_msg; ?>
+        <table width="550" height="200" border="0" cellspacing="1" cellpadding="2">
           <tr style="font-weight: bold; color: #1f3477; ">
            
           </tr>
           <tr style="font-weight: bold; background-color: #999999; ">
-          <td width="140">Student name</td>
             <td width="140">Subject name</td>
             <td width="50">Test Score</td>
             <td width="50">Exam Score</td>
             <td width="55">Total Score</td>
-            <td width="55">Grade</td>
+            <td width="55"></td>
           </tr>
           <?php
 
 
 
-$query = "SELECT reg_num, fname, sname FROM registration WHERE class = '{$class}' ";
+$query = "SELECT registration.reg_num, registration.fname, marks.test_score, marks.exam_score, marks.total_score, marks.grade, subjects.subj_name\n"
+
+    . "   FROM registration, marks, subjects\n"
+
+    . "   WHERE registration.fname='$reg' AND registration.reg_num=marks.reg_num AND marks.subj_id='$sid' AND marks.subj_id=subjects.id";
 if($db_result = $cxn->query($query))
 {
 $bg = 1;
@@ -104,27 +152,23 @@ while($result = $db_result->fetch_assoc())
   {
     echo "<tr style='background: #e0eff6 url(images/frm_chg.gif) repeat-x;'>";
   }
-   echo "<td align='left'>".$result['fname']." ".$result['sname']."</td>";
-  
-$query3 = "SELECT marks.test_score, marks.exam_score, marks.total_score, marks.grade, subjects.subj_name
-   FROM marks, subjects
-   WHERE marks.reg_num='{$result['reg_num']}' AND marks.subj_id='$sid' AND subjects.subj_name='{$subject}' ";
-
-  if($ds = $cxn->query($query3))
-  {
-    while($resultq = $ds->fetch_assoc())
-    {
-       echo "<td>".$resultq['subj_name']."</td>";
-        echo "<td>".$resultq['test_score']."</td>";
-        echo "<td>".$resultq['exam_score']."</td>";
-        echo "<td>".$resultq['total_score']."</td>";
-        echo "<td>".$resultq['grade']."</td>";
-    }
-  } 
+  ?> <form action="" method="post" ><?php
+       echo "<td>".$result['subj_name']."</td>";
+        echo "<td><input type='text' id='test_score' name='test_score' onblur='add();' size='3' value='".$result['test_score']."' /></td>";
+        echo "<td><input type='text' id='exam_score' name='exam_score' onblur='add();' size='3' value='".$result['exam_score']."' /></td>";
+        echo "<td><input type='text' id='total_score' name='total_score' size='3' value='".$result['total_score']."'  /></td>";
+        
+        echo "<td> <input  type='submit' name='edit' size='3' value='EDIT'  /> </td>";
+        ?>
+          </form> 
+        
+         </form> <?php
   echo "<td>&nbsp;</td>";
   echo "<td>&nbsp;</td></tr>";
   $bg++;
 }
+
+
 $db_result->close();
 }
 else echo $cxn->error;
@@ -134,7 +178,8 @@ $cxn->close();
           ?>
          
         </table>
-      </form>  
+        
+      </div>
     </div>
     </div>
     
@@ -142,9 +187,9 @@ $cxn->close();
 </div>
 </div>
 <div class='btm'>
-    <a href='../index1.php'>Home </a>
-    <a href='../registration'> Registration </a>
-    <a href='../results'> View results </a>
+    <a href='../index.php'>Home </a>
+    <a href='../adminreg/'> Registration </a>
+    <a href='../advres/'> View results </a>
     <br/>&copy; All rights reserved. <br/> 
     An Ivan Masaba Production 2022
 </div>

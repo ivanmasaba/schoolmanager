@@ -46,7 +46,7 @@
 		$new_password = $_POST['new_password'];
 		$confirm_password = $_POST['confirm'];
 		//check for empty fields
-		$form_msg = "<div class='warn' >";
+		$form_msg = "<div class='info' >";
 		foreach( $_POST as $field => $value )
 		{
 			if ( $value == "")
@@ -98,7 +98,7 @@
 		$tab2='tabs';
 		$current_user_type = 'new';
 		$error_fill = 0;
-		$new_form_msg = "<div class='warn' >";
+		$new_form_msg = "<div class='info' >";
 		$fname = $_POST['fname'];
 		$sname = $_POST['sname'];
 		$index_number = $_POST['index_number'];
@@ -128,7 +128,8 @@
 		// if no errors, enter values into the database
 		if ( $error_fill == 0 )
 		{
-			$query = "INSERT INTO registration VALUES('$index_number', '$fname', '$sname', '$class', '$stream', '$birth_date', '$email', '$fathers_name', '$mothers_name', '$parent_number', '$parent_address', '$illness', '$disability', '$others');";
+			$query = "INSERT INTO registration(reg_num, fname, sname, class, stream, birth_date, email, fathers_name, mothers_name, parent_number, parent_address, illness, disability, others) 
+			VALUES('$index_number', '$fname', '$sname', '$class', '$stream', '$birth_date', '$email', '$fathers_name', '$mothers_name', '$parent_number', '$parent_address', '$illness', '$disability', '$others');";
 			if( $result1 = $cxn->query("SELECT password FROM login WHERE reg_num = '$index_number'") )
 			{
 				if ( $current_pass = $result1->fetch_assoc() )
@@ -232,10 +233,10 @@ echo "<h3 style=\"background-image: url(../images/email_initiator.gif);\" ><a hr
               <tr>
                 <td align='right'>Class:</td>
                 <td><select name='class' >
-                        <option value='S1'>Senior one</option>
-                        <option value='S2'>Senior two</option>
-                        <option value='S3'>Senior three</option>
-                        <option value='S4'>Senior four</option>
+                        <option value='senior one'>Senior one</option>
+                        <option value='senior two'>Senior two</option>
+                        <option value='senior three'>Senior three</option>
+                        <option value='senior four'>Senior four</option>
                     </select>
                     &nbsp;Stream:
                     <select name='stream'>

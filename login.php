@@ -38,21 +38,21 @@
 						$new_result = $cxn->query($query1);
 						$user_details = mysqli_fetch_assoc($new_result);
 						$_SESSION['sname'] = $user_details['sname'];
-					$_SESSION['fname'] = $user_details['fname'];
-					$_SESSION['class'] = $user_details['class'];
-					$_SESSION['stream'] = $user_details['stream'];
-					$_SESSION['birthDate'] = $user_details['birth_date'];
-					$_SESSION['email'] = $user_details['email'];
-					$_SESSION['index_number'] = $user_row['reg_num'];
-					$_SESSION['current_uname'] = $user_row['uname'];
-					$_SESSION['access_level'] = $user_row['level'];
-					$_SESSION['fathersname'] = $user_details['fathers_name'];
-					$_SESSION['mothers_name'] = $user_details['mothers_name'];
-					$_SESSION['parent_number'] = $user_details['parent_number'];
-					$_SESSION['parent_address'] = $user_details['parent_address'];
-					$_SESSION['illness'] = $user_details['illness'];
-					$_SESSION['disability'] = $user_details['disability'];
-					$_SESSION['authenticated'] = 'yes';
+						$_SESSION['fname'] = $user_details['fname'];
+						$_SESSION['class'] = $user_details['class'];
+						$_SESSION['stream'] = $user_details['stream'];
+						$_SESSION['birthDate'] = $user_details['birth_date'];
+						$_SESSION['email'] = $user_details['email'];
+						$_SESSION['index_number'] = $user_row['reg_num'];
+						$_SESSION['current_uname'] = $user_row['uname'];
+						$_SESSION['access_level'] = $user_row['level'];
+						$_SESSION['fathersname'] = $user_details['fathers_name'];
+						$_SESSION['mothers_name'] = $user_details['mothers_name'];
+						$_SESSION['parent_number'] = $user_details['parent_number'];
+						$_SESSION['parent_address'] = $user_details['parent_address'];
+						$_SESSION['illness'] = $user_details['illness'];
+						$_SESSION['disability'] = $user_details['disability'];
+						$_SESSION['authenticated'] = 'yes';
 					header("location: index1.php"); 
 					exit;
 					}
@@ -61,12 +61,17 @@
 						$new_result = $cxn->query($query2);
 						$user_details = mysqli_fetch_assoc($new_result);
 						$_SESSION['sname'] = $user_details['sname'];
-					$_SESSION['fname'] = $user_details['fname'];
-					$_SESSION['birthDate'] = $user_details['birthDate'];
-					$_SESSION['email'] = $user_details['email'];
-					$_SESSION['index_number'] = $user_row['reg_num'];
-					$_SESSION['current_uname'] = $user_row['uname'];
-					$_SESSION['access_level'] = $user_row['level'];
+						$_SESSION['fname'] = $user_details['fname'];
+						$_SESSION['class'] = $user_details['class_id'];
+						$_SESSION['subject'] = $user_details['subj_id'];
+						$_SESSION['birthDate'] = $user_details['birth_date'];
+						$_SESSION['email'] = $user_details['email'];
+						$_SESSION['phone'] = $user_details['phone'];
+						$_SESSION['address'] = $user_details['address'];
+
+						$_SESSION['index_number'] = $user_row['reg_num'];
+						$_SESSION['current_uname'] = $user_row['uname'];
+						$_SESSION['access_level'] = $user_row['level'];
 					$_SESSION['authenticated'] = 'yes';
 					header("location: index.php"); 
 					exit;
@@ -121,11 +126,11 @@
             <br /> Enter your username and password.</td>
             <td width="205"><br>
               <label >User name:</label><br>
-            <input name="uname" value="andy" type="text" size="30" maxlength="20" id="user_name" onblur="getUser(this.value)" /></td>
+            <input name="uname" value="ivan" type="text" size="30" maxlength="20" id="user_name" onblur="getUser(this.value)" /></td>
           </tr>
           <tr>
             <td><label >Password:</label><br>
-            <input name="password" value="4321" type="password" size="30" maxlength="20" /></td>
+            <input name="password" value="9999" type="password" size="30" maxlength="20" /></td>
           </tr>
           <tr>
             <td width="115" rowspan="2" style=" font-weight: normal;">&nbsp;</td>

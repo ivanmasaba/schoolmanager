@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <script type="text/javascript" src="calc.js"></script>
+<body>
+
+<button id="mybtn">Open Modal</button>
+
+    <div class="modal" id="mymodal">
+
+      <span class="close">&times;</span>
+      
+      <div class="modal-content">
+        <form action="">
+          <div>
+            <label >Test Score: </label>
+            <input type="number"  id="test_score" value="0" min="0" max="100" onblur="add();" required /><br>
+          </div>
+         
+          <div>
+            <label >Exam Score: </label>
+            <input type="number"  id="exam_score" value="0" min="0" max="100" onblur="add();" required /><br>
+        </div>
+         
+          <div>
+            <label >Total Score: </label>
+            <input type="number"  id="total_score" value="" min="0" max="50" disabled /><br>
+        </div>
+         
+      </form>
+
+      </div>
+     
+    </div>
+
+</body>
+</html>
